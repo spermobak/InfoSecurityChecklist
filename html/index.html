@@ -20,10 +20,12 @@
                 <li><a href="#" id="contact" data-section="contact">Контактное лицо</a></li>
                 <li><a href="#" id="phone" data-section="phone">Телефон</a></li>
                 <li><a href="#" id="email" data-section="email">Email</a></li>
-                <li><a href="#" id="count_of_responsible_for_is" data-section="countresponsible_for_is">Сколько человек
+                <li><a href="#" id="count_of_responsible_for_is" data-section="count_of_responsible_for_is">Сколько человек
                         отвечает за ИБ</a></li>
                 <li><a href="#" id="responsible_for_is" data-section="responsible_for_is">Назначен ли ответственный за
                         защиту</a></li>
+                <li><a href="#" id="address" data-section="address">Укажите адреса объектов</a></li>
+                <li><a href="#" id="pnd_categories" data-section="pnd_categories">Какие категории ПНд обрабатываются организацией?</a></li>
                 <input type="button" value="Отправить" onclick="submitForm()" />
             </ul>
         </div>
@@ -42,20 +44,56 @@
                     <input type="email" id="email" name="email" placeholder="Email" required />
                 </section>
                 <section id="count_of_responsible_for_is" class="form-section">
-                    <input type="number" id="count_of_responsible_for_is" name="count_of_responsible_for_is" required />
+                    <div class="row">
+                        <div class="small-12 columns">
+                            <input type="number" id="count_of_responsible_for_is" name="count_of_responsible_for_is" placeholder="Укажите число" min="0" autofocus required pattern="[0-9]*"/>
+                        </div>
+                    </div>
                 </section>
                 <section id="responsible_for_is" class="form-section">
-                    <label>Назначен ли ответственный за защиту</label>
-                    <input type="radio" name="buttun_yes" value="yes" id="buttun_yes" required>
-                    <label for="buttun_yes">Да</label>
-                    <input type="radio" name="buttun_no" value="no" id="buttun_no">
-                    <label for="buttun_no">Нет</label>
+                    <div class="grid-x grid-padding-x">
+                        <div class="large-6 medium-6 cell">
+                            <label>Назначен ли ответственный за защиту</label>
+                            <input type="radio" name="switch" value="yes" id="switch_yes">
+                            <label for="switch_yes">Да</label>
+                            <input type="radio" name="switch" value="no" id="switch_no">
+                            <label for="switch_no">Нет</label>
+                        </div>
                 </section>
-            </form>
+                <section id="address" class="form-section">
+                    <div>
+                        <input type="text" id="answers" placeholder="Введите адрес">
+                        <button onclick="addAnswer()">Добавить</button>
+                    </div>
+                    <ul id="answer-list"></ul>
+                </section>
+                <section id="pnd_categories" class="form-section">
+                    <div class="row">
+                        <div class="small-12 columns">
+                            <input id="free_info" type="checkbox">
+                            <label for="free_info">Общедоступная информация (персональные данные, находящиеся в общедуступных источниках);</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-12 columns">
+                            <input id="biometric" type="checkbox">
+                            <label for="biometric">Биометрические (внешность, голос);</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-12 columns">
+                            <input id="special" type="checkbox">
+                            <label for="special">Специальные (расса, национальность, политические взгляды, состояние здоровья);</label>
+                        </div>
+                    </div>
+                </section>
         </div>
+        </form>
     </div>
-    <script src="js\Json.js"></script>
-    <script src="js\Menu-switch.js"></script>
+    </div>
+    <script src="/js/Json.js"></script>
+    <script src="/js/Menu-switch.js"></script>
+    <script src="/js/add_answer.js"></script>
 </body>
 
 </html>
