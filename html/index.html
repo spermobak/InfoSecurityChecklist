@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заполните форму</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+    <h1>Сбор данных по результатам анкетирования</h1>
+    <div class="form">
+        <div class="form-left">
+            <ul class="form-nav">
+                <li>
+                    <a href="#" id="name_org" data-section="name_org">Наименование организации (ИНН)</a>
+                </li>
+                <li><a href="#" id="contact" data-section="contact">Контактное лицо</a></li>
+                <li><a href="#" id="phone" data-section="phone">Телефон</a></li>
+                <li><a href="#" id="email" data-section="email">Email</a></li>
+                <li><a href="#" id="count_of_responsible_for_is" data-section="countresponsible_for_is">Сколько человек
+                        отвечает за ИБ</a></li>
+                <li><a href="#" id="responsible_for_is" data-section="responsible_for_is">Назначен ли ответственный за
+                        защиту</a></li>
+                <input type="button" value="Отправить" onclick="submitForm()" />
+            </ul>
+        </div>
+        <div class="form-right">
+            <form id="myForm">
+                <section id="name_org" class="form-section active">
+                    <input type="text" id="name" name="name" placeholder="Наименование организации" required />
+                </section>
+                <section id="contact" class="form-section">
+                    <input type="text" id="contact" name="contact" placeholder="Контактное лицо" required />
+                </section>
+                <section id="phone" class="form-section">
+                    <input type="text" id="phone" name="phone" placeholder="Телефон" required />
+                </section>
+                <section id="email" class="form-section">
+                    <input type="email" id="email" name="email" placeholder="Email" required />
+                </section>
+                <section id="count_of_responsible_for_is" class="form-section">
+                    <input type="number" id="count_of_responsible_for_is" name="count_of_responsible_for_is" required />
+                </section>
+                <section id="responsible_for_is" class="form-section">
+                    <label>Назначен ли ответственный за защиту</label>
+                    <input type="radio" name="buttun_yes" value="yes" id="buttun_yes" required>
+                    <label for="buttun_yes">Да</label>
+                    <input type="radio" name="buttun_no" value="no" id="buttun_no">
+                    <label for="buttun_no">Нет</label>
+                </section>
+            </form>
+        </div>
+    </div>
+    <script src="js\Json.js"></script>
+    <script src="js\Menu-switch.js"></script>
+</body>
+
+</html>
