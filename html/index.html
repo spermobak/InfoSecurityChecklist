@@ -20,34 +20,45 @@
                 <li><a href="#" id="contact" data-section="contact">Контактное лицо</a></li>
                 <li><a href="#" id="phone" data-section="phone">Телефон</a></li>
                 <li><a href="#" id="email" data-section="email">Email</a></li>
-                <li><a href="#" id="count_of_responsible_for_is" data-section="count_of_responsible_for_is">Сколько человек
+                <li><a href="#" id="count_of_responsible_for_is" data-section="count_of_responsible_for_is">Сколько
+                        человек
                         отвечает за ИБ</a></li>
                 <li><a href="#" id="responsible_for_is" data-section="responsible_for_is">Назначен ли ответственный за
                         защиту</a></li>
                 <li><a href="#" id="address" data-section="address">Укажите адреса объектов</a></li>
-                <li><a href="#" id="pnd_categories" data-section="pnd_categories">Какие категории ПНд обрабатываются организацией?</a></li>
+                <li><a href="#" id="pnd_categories" data-section="pnd_categories">Какие категории ПНд обрабатываются
+                        организацией?</a></li>
+                <li><a href="#" id="documentation_level" data-section="documentation_level">Оцените степень
+                        документирования процесса защиты ПНд (ИТ и ИБ)</a></li>
                 <input type="button" value="Отправить" onclick="submitForm()" />
             </ul>
         </div>
         <div class="form-right">
             <form id="myForm">
                 <section id="name_org" class="form-section active">
-                    <input type="text" id="name" name="name" placeholder="Наименование организации" required />
+                    <div class="row">
+                        <input type="text" id="name" name="name" placeholder="Наименование организации" required />
+                    </div>
                 </section>
                 <section id="contact" class="form-section">
-                    <input type="text" id="contact" name="contact" placeholder="Контактное лицо" required />
+                    <div class="row">
+                        <input type="text" id="contact" name="contact" placeholder="Контактное лицо" required />
+                    </div>
                 </section>
                 <section id="phone" class="form-section">
-                    <input type="text" id="phone" name="phone" placeholder="Телефон" required />
+                    <div class="row">
+                        <input type="text" id="phone" name="phone" placeholder="Телефон" required />
+                    </div>
                 </section>
                 <section id="email" class="form-section">
-                    <input type="email" id="email" name="email" placeholder="Email" required />
+                    <div class="row">
+                        <input type="email" id="email" name="email" placeholder="Email" required />
+                    </div>
                 </section>
                 <section id="count_of_responsible_for_is" class="form-section">
                     <div class="row">
-                        <div class="small-12 columns">
-                            <input type="number" id="count_of_responsible_for_is" name="count_of_responsible_for_is" placeholder="Укажите число" min="0" autofocus required pattern="[0-9]*"/>
-                        </div>
+                        <input type="number" id="count_of_responsible_for_is" name="count_of_responsible_for_is"
+                            placeholder="Укажите число" min="0" autofocus required pattern="[0-9]*" />
                     </div>
                 </section>
                 <section id="responsible_for_is" class="form-section">
@@ -71,7 +82,8 @@
                     <div class="row">
                         <div class="small-12 columns">
                             <input id="free_info" type="checkbox">
-                            <label for="free_info">Общедоступная информация (персональные данные, находящиеся в общедуступных источниках);</label>
+                            <label for="free_info">Общедоступная информация (персональные данные, находящиеся в
+                                общедуступных источниках);</label>
                         </div>
                     </div>
                     <div class="row">
@@ -83,7 +95,25 @@
                     <div class="row">
                         <div class="small-12 columns">
                             <input id="special" type="checkbox">
-                            <label for="special">Специальные (расса, национальность, политические взгляды, состояние здоровья);</label>
+                            <label for="special">Специальные (расса, национальность, политические взгляды, состояние
+                                здоровья);</label>
+                        </div>
+                    </div>
+                </section>
+                <section id="documentation_level" class="form-section">
+                    <div class="row">
+                        <div class="small-12 columns">
+                            <label for="range_input">Оцените степень документирования процесса защиты ПНд (ИБ и
+                                ИТ)</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-4 columns">
+                            <input type="range" id="range_input" min="0" max="10" name="range_input" value="5"
+                                style="width: 100%;" oninput="range_output.value=range_input.value"></input>
+                        </div>
+                        <div class="small-8 columns">
+                            <output id="range_output" name="range_output" for="range_input">5</output>
                         </div>
                     </div>
                 </section>

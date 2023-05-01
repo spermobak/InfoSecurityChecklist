@@ -92,9 +92,11 @@ input[type="text"],
     }
 
     
-.searchbar {
-    margin: 1rem;
-  }
+    #range_output {
+        display: block;
+        text-align: center;
+        font-size: 22pt;
+      }
   
  
   
