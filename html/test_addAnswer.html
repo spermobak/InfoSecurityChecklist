@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section id="address" class="form-section">
+        <div>
+            <input type="text" id="address_answer_input" placeholder="Введите адрес">
+            <button onclick="addAnswer('address', 'address_answer_input' , 'address_answer-list')">Добавить</button>
+
+        </div>
+        <ul id="address_answer-list"></ul>
+    </section> 
+    <section id="buisness_processes" class="form-section">
+        <div class="grid-x grid-padding-x">
+          <div class="large-6 medium-6 cell">
+            <label>Определены ли бизнес процессы в организации, которые задействованы в обработке ПНд?</label>
+            <input type="radio" name="switch_bp" value="yes" id="switch_bp_yes" onclick="showField('switch_bp_yes', 'buisness-field')">
+            <label for="switch_bp_yes">Да</label>
+            <input type="radio" name="switch_bp" value="no" id="switch_bp_no" onclick="hideField('switch_bp_yes', 'buisness-field')">
+            <label for="switch_bp_no">Нет</label>
+          </div>
+        </div>
+        
+        <div id="buisness-field" style="display: none;">
+          <div>
+            <input type="text" id="bf_answer_input" placeholder="Введите бизнес процесс">
+            <button onclick="addAnswer('buisness_processes', 'bf_answer_input', 'bf_answer-list')">Добавить</button>
+          </div>
+          <ul id="bf_answer_list" class="editingItem"></ul>
+        </div>                      
+      </section>
+      
+    <script>
+
+function showField(radioId, fieldId) {
+  const radio = document.getElementById(radioId);
+  if (!radio) {
+    console.error(`Radio with id '${radioId}' not found`);
+    return;
+  }
+  const field = document.getElementById(fieldId);
+  if (!field) {
+    console.error(`Field with id '${fieldId}' not found`);
+    return;
+  }
+  field.style.display = "block";
+}
+
+function hideField(radioId, fieldId) {
+  const radio = document.getElementById(radioId);
+  if (!radio) {
+    console.error(`Radio with id '${radioId}' not found`);
+    return;
+  }
+  const field = document.getElementById(fieldId);
+  if (!field) {
+    console.error(`Field with id '${fieldId}' not found`);
+    return;
+  }
+  field.style.display = "none";
+}
+
+
+
+function addAnswer(sectionId, fieldId, ulID) {
+  // Получаем значение поля ввода
+  const input = document.querySelector(`#${sectionId} .${fieldId}`);
+  const answer = input.value.trim();
+
+  // Если поле ввода пустое, ничего не делаем
+  if (answer === "") {
+    return;
+  }
+
+  // Получаем список ответов
+  const answerList = document.querySelector(`#${sectionId} .${ulID}`);
+
+  // Если есть редактируемый элемент, то меняем его текст на новое значение
+  let editingItem = answerList.querySelector(".editing");
+  if (editingItem !== null) {
+    editingItem.firstChild.textContent = answer;
+    editingItem.classList.remove("editing");
+    input.value = ""; // Очищаем поле ввода
+    return;
+  }
+
+  // Создаем элемент списка
+  const li = document.createElement("li");
+  const span = document.createElement("span");
+  span.textContent = answer;
+  li.appendChild(span);
+
+  // Добавляем возможность редактировать элемент списка
+  li.onclick = function() {
+    // Снимаем выделение с других элементов
+    answerList.querySelectorAll("li").forEach(function(item) {
+      item.classList.remove("editing");
+    });
+
+    // Выделяем редактируемый элемент
+    li.classList.add("editing");
+    input.value = span.textContent;
+  };
+
+  // Создаем кнопку "Удалить"
+  const deleteButton = document.createElement("button");
+  deleteButton.textContent = "Удалить";
+  deleteButton.onclick = function() {
+    li.remove();
+  };
+  li.appendChild(deleteButton);
+
+  // Добавляем элемент в список
+  answerList.appendChild(li);
+
+  // Очищаем поле ввода
+  input.value = "";
+}
+
+    </script>
+</body>
+</html>
