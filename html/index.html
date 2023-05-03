@@ -26,12 +26,16 @@
                 <li><a href="#" id="responsible_for_is" data-section="responsible_for_is">Назначен ли ответственный за
                         защиту</a></li>
                 <li><a href="#" id="address" data-section="address">Укажите адреса объектов</a></li>
-                <li><a href="#" id="buisness_processes" data-section="buisness_processes">Определены ли бизнес процессы?</a></li>
-                <li><a href="#" id="count_of_subject" data-section="count_of_subject">Колличество субъектов чьи ПНд обрабатываются</a></li>
+                <li><a href="#" id="buisness_processes" data-section="buisness_processes">Определены ли бизнес
+                        процессы?</a></li>
+                <li><a href="#" id="count_of_subject" data-section="count_of_subject">Колличество субъектов чьи ПНд
+                        обрабатываются</a></li>
                 <li><a href="#" id="pnd_categories" data-section="pnd_categories">Какие категории ПНд обрабатываются
                         организацией?</a></li>
-                <li><a href="#" id="pnd_subjects" data-section="pnd_subjects">ПНд каких субъектов обрабатывает организация?</a></li>
-                <li><a href="#" id="list_is" data-section="list_is">Список информационных систем, обрабатывающих ПНд</a></li>
+                <li><a href="#" id="pnd_subjects" data-section="pnd_subjects">ПНд каких субъектов обрабатывает
+                        организация?</a></li>
+                <li><a href="#" id="list_is" data-section="list_is">Список информационных систем, обрабатывающих ПНд</a>
+                </li>
                 <li><a href="#" id="documentation_level" data-section="documentation_level">Оцените степень
                         документирования процесса защиты ПНд (ИТ и ИБ)</a></li>
                 <input type="button" value="Отправить" onclick="submitForm()" />
@@ -62,7 +66,8 @@
                 <section id="count_of_responsible_for_is" class="form-section">
                     <div class="row">
                         <input type="number" id="count_of_responsible_for_is" name="count_of_responsible_for_is"
-                            placeholder="Укажите число" min="0" autofocus required pattern="[0-9]*" />
+                            placeholder="Укажите число" min="0" autofocus required
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '');" />
                     </div>
                 </section>
                 <section id="responsible_for_is" class="form-section">
@@ -77,12 +82,11 @@
                 </section>
                 <section id="address" class="form-section">
                     <div>
-                        <input type="text" class="a_answer-input" placeholder="Введите адрес">
+                        <input type="text" class="answer-input" placeholder="Введите адрес">
                         <button onclick="addAnswer('address')">Добавить</button>
                     </div>
-                    <ul class="a_answer-list"></ul>
+                    <ul class="answer-list"></ul>
                 </section>
-                  
                 <section id="pnd_categories" class="form-section">
                     <div class="row">
                         <div class="small-12 columns">
@@ -105,6 +109,68 @@
                         </div>
                     </div>
                 </section>
+                <section id="buisness_processes" class="form-section">
+                    <div class="grid-x grid-padding-x">
+                        <div class="large-6 medium-6 cell">
+                            <label>Определены ли бизнес процессы в организации, которые задействованы в обработке
+                                ПНд?</label>
+                            <input type="radio" name="switch_bp" value="yes" id="switch_bp_yes"
+                                onclick="showField('switch_bp_yes', 'buisness-field')">
+                            <label for="switch_bp_yes">Да</label>
+                            <input type="radio" name="switch_bp" value="no" id="switch_bp_no"
+                                onclick="hideField('switch_bp_yes', 'buisness-field')">
+                            <label for="switch_bp_no">Нет</label>
+                        </div>
+                    </div>
+
+                    <div id="buisness-field" style="display: none;">
+                        <div>
+                            <input type="text" class="answer-input" placeholder="Введите бизнес процесс">
+                            <button onclick="addAnswer('buisness_processes')">Добавить</button>
+                        </div>
+                        <ul class="answer-list"></ul>
+                    </div>
+                </section>
+                <section id="count_of_subject" class="form-section">
+                    <div class="row">
+                        <input type="number" id="count_of_employee" name="count_of_employee"
+                            placeholder="Количество сотрудников" min="0" autofocus required
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '');" />
+                    </div>
+                    <div class="row">
+                        <input type="number" id="count_of_client" name="count_of_client"
+                            placeholder="Количество клиентов" min="0" autofocus required
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '');" />
+                    </div>
+                </section>
+                <section id="pnd_subjects" class="form-section">
+                    <div class="row">
+                        <div class="small-12 columns">
+                            <input id="company_employees" type="checkbox">
+                            <label for="company_employees">Сотрудники организации;</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-12 columns">
+                            <input id="company_clients" type="checkbox">
+                            <label for="company_clients">Клиенты/контрагенты организации (лица, с которыми заключен договор ГПХ);</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-12 columns">
+                            <input id="other" type="checkbox">
+                            <label for="other">Третьи лица;</label>
+                        </div>
+                    </div>
+                </section>
+                <section id="list_is" class="form-section">
+                    <div>
+                        <input type="text" class="answer-input" placeholder="Введите информационную систему">
+                        <button onclick="addAnswer('list_is')">Добавить</button>
+                    </div>
+                    <ul class="answer-list"></ul>
+                </section>
+                
                 <section id="documentation_level" class="form-section">
                     <div class="row">
                         <div class="small-12 columns">
@@ -122,25 +188,6 @@
                         </div>
                     </div>
                 </section>
-                <section id="buisness_processes" class="form-section">
-                    <div class="grid-x grid-padding-x">
-                        <div class="large-6 medium-6 cell">
-                          <label>Определены ли бизнес процессы в организации, которые задействованы в обработке ПНд?</label>
-                          <input type="radio" name="switch_bp" value="yes" id="switch_bp_yes" onclick="showField('switch_bp_yes', 'buisness-field')">
-                          <label for="switch_bp_yes">Да</label>
-                          <input type="radio" name="switch_bp" value="no" id="switch_bp_no" onclick="hideField('switch_bp_yes', 'buisness-field')">
-                          <label for="switch_bp_no">Нет</label>
-                        </div>
-                      </div>
-                      
-                      <div id="buisness-field" style="display: none;">
-                        <div>
-                          <input type="text" id="bf_answer_input" placeholder="Введите бизнес процесс">
-                          <button onclick="addAnswer('buisness_processes')">Добавить</button>
-                        </div>
-                        <ul id="bf_answer-list"></ul>
-                      </div>                      
-                </section>    
         </div>
         </form>
     </div>
