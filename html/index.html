@@ -20,7 +20,7 @@
                 <li><a href="#" id="contact" data-section="contact">Контактное лицо</a></li>
                 <li><a href="#" id="phone" data-section="phone">Телефон</a></li>
                 <li><a href="#" id="email" data-section="email">Email</a></li>
-                <li><a href="#" id="count_of_responsible_for_is" data-section="count_of_responsible_for_is">Сколько
+                <li><a href="#" id="numb_of_responsible_for_is" data-section="numb_of_responsible_for_is">Сколько
                         человек
                         отвечает за ИБ</a></li>
                 <li><a href="#" id="responsible_for_is" data-section="responsible_for_is">Назначен ли ответственный за
@@ -36,6 +36,22 @@
                         организация?</a></li>
                 <li><a href="#" id="list_is" data-section="list_is">Список информационных систем, обрабатывающих ПНд</a>
                 </li>
+                <li><a href="#" id="abroad_is" data-section="abroad_is">Какие из перечисленных ИС находятся за границей</a>
+                </li>
+                <li><a href="#" id="numb_of_servers" data-section="numb_of_servers">Количество серверов, на которых
+                        обрабатываются ПНд</a></li>
+                <li><a href="#" id="numb_of_aws" data-section="numb_of_aws">Количество автоматизированных рабочих
+                        мест(АРМ), на которых осуществляется обработка ПНд</a></li>
+                <li><a href="#" id="protective_equipment" data-section="protective_equipment">Средства защиты инфрмации,
+                        применяемые для обеспечения безопасности ПНд</a></li>
+                <li><a href="#" id="cist" data-section="cist">Используется ли СКЗИ для защиты</a></li>
+                <li><a href="#" id="risk_model" data-section="risk_model">Действует ли в организации модель угроз</a></li>
+                <li><a href="#" id="processing_policy" data-section="processing_policy">Введена ли в действие политика обработки ПНд, политика
+                        защиты ПНд</a></li>
+                <li><a href="#" id="other_documentation" data-section="other_documentation">Действует ли в организации иная
+                        организационно-распределительная документация в направлении защиты ПНд?</a></li>
+                <li><a href="#" id="security_level" data-section="security_level">Определен ли уровень зашищенности ПНд в информационных
+                        системах</a></li>
                 <li><a href="#" id="documentation_level" data-section="documentation_level">Оцените степень
                         документирования процесса защиты ПНд (ИТ и ИБ)</a></li>
                 <input type="button" value="Отправить" onclick="submitForm()" />
@@ -63,9 +79,9 @@
                         <input type="email" id="email" name="email" placeholder="Email" required />
                     </div>
                 </section>
-                <section id="count_of_responsible_for_is" class="form-section">
+                <section id="numb_of_responsible_for_is" class="form-section">
                     <div class="row">
-                        <input type="number" id="count_of_responsible_for_is" name="count_of_responsible_for_is"
+                        <input type="number" id="numb_of_responsible_for_is" name="numb_of_responsible_for_is"
                             placeholder="Укажите число" min="0" autofocus required
                             oninput="this.value = this.value.replace(/[^0-9]/g, '');" />
                     </div>
@@ -74,8 +90,8 @@
                     <div class="grid-x grid-padding-x">
                         <div class="large-6 medium-6 cell">
                             <label>Назначен ли ответственный за защиту</label>
-                            <input type="radio" name="switch" value="yes" id="switch_a_yes">
-                            <label for="switch_a_yes">Да</label>
+                            <input type="radio" name="switch" value="yes" id="switch_rfi_yes">
+                            <label for="switch_rfi_yes">Да</label>
                             <input type="radio" name="switch" value="no" id="switch_a_no">
                             <label for="switch_a_no">Нет</label>
                         </div>
@@ -153,7 +169,8 @@
                     <div class="row">
                         <div class="small-12 columns">
                             <input id="company_clients" type="checkbox">
-                            <label for="company_clients">Клиенты/контрагенты организации (лица, с которыми заключен договор ГПХ);</label>
+                            <label for="company_clients">Клиенты/контрагенты организации (лица, с которыми заключен
+                                договор ГПХ);</label>
                         </div>
                     </div>
                     <div class="row">
@@ -170,7 +187,79 @@
                     </div>
                     <ul class="answer-list"></ul>
                 </section>
-                
+                <section id="numb_of_servers" class="form-section">
+                    <div class="row">
+                        <input type="number" id="numb_of_servers" name="numb_of_servers" placeholder="Укажите число"
+                            min="0" autofocus required oninput="this.value = this.value.replace(/[^0-9]/g, '');" />
+                    </div>
+                </section>
+                <section id="numb_of_aws" class="form-section">
+                    <div class="row">
+                        <input type="number" id="numb_of_aws" name="numb_of_aws" placeholder="Укажите число" min="0"
+                            autofocus required oninput="this.value = this.value.replace(/[^0-9]/g, '');" />
+                    </div>
+                </section>
+                <section id="cist" class="form-section">
+                    <div class="grid-x grid-padding-x">
+                        <div class="large-6 medium-6 cell">
+                            <label>Используется ли СКЗИ для защиты</label>
+                            <input type="radio" name="switch_c" value="yes" id="switch_c_yes">
+                            <label for="switch_c_yes">Да</label>
+                            <input type="radio" name="switch_c" value="no" id="switch_c_no">
+                            <label for="switch_c_no">Нет</label>
+                        </div>
+                </section>
+                <section id="risk_model" class="form-section">
+                    <div class="grid-x grid-padding-x">
+                        <div class="large-6 medium-6 cell">
+                            <label>Действует ли в организации модель угроз</label>
+                            <input type="radio" name="switch_rm" value="yes" id="switch_rm_yes">
+                            <label for="switch_rm_yes">Да</label>
+                            <input type="radio" name="switch_rm" value="no" id="switch_rm_no">
+                            <label for="switch_rm_no">Нет</label>
+                        </div>
+                </section>
+                <section id="processing_policy" class="form-section">
+                    <div class="grid-x grid-padding-x">
+                        <div class="large-6 medium-6 cell">
+                            <label>Введена ли в действие политика обработки ПНд, политика защиты ПНд</label>
+                            <input type="radio" name="switch_pp" value="yes" id="switch_pp_yes">
+                            <label for="switch_pp_yes">Да</label>
+                            <input type="radio" name="switch_pp" value="no" id="switch_pp_no">
+                            <label for="switch_pp_no">Нет</label>
+                        </div>
+                </section>
+                <section id="other_documentation" class="form-section">
+                    <div class="grid-x grid-padding-x">
+                        <div class="large-6 medium-6 cell">
+                            <label>Действует ли в организации иная организационно-распределительная документация в направлении защиты ПНд</label>
+                            <input type="radio" name="switch_od" value="yes" id="switch_od_yes"
+                                onclick="showField('switch_od_yes', 'od-field')">
+                            <label for="switch_od_yes">Да</label>
+                            <input type="radio" name="switch_od" value="no" id="switch_od_no"
+                                onclick="hideField('switch_od_yes', 'od-field')">
+                            <label for="switch_od_no">Нет</label>
+                        </div>
+                    </div>
+
+                    <div id="od-field" style="display: none;">
+                        <div>
+                            <input type="text" class="answer-input" placeholder="Введите бизнес процесс">
+                            <button onclick="addAnswer('other_documentation')">Добавить</button>
+                        </div>
+                        <ul class="answer-list"></ul>
+                    </div>
+                </section>
+                <section id="security_level" class="form-section">
+                    <div class="grid-x grid-padding-x">
+                        <div class="large-6 medium-6 cell">
+                            <label>Определенн ли уровень зашищенности ПНд в информационных системах</label>
+                            <input type="radio" name="switch_sl" value="yes" id="switch_sl_yes">
+                            <label for="switch_sl_yes">Да</label>
+                            <input type="radio" name="switch_sl" value="no" id="switch_sl_no">
+                            <label for="switch_sl_no">Нет</label>
+                        </div>
+                </section>
                 <section id="documentation_level" class="form-section">
                     <div class="row">
                         <div class="small-12 columns">
