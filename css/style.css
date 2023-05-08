@@ -49,6 +49,8 @@
 
 input[type="text"],
  input[type="email"],
+ input[type="tel"],
+ input[type="url"],
  textarea {
      width: 94%;
      padding: 10px;
@@ -98,6 +100,14 @@ input[type="text"],
         font-size: 22pt;
       }
   
- 
+      .answer-list {
+        border: 2px solid #2692e3;
+        list-style-type: none;
+        margin: 5;
+        padding: 0;
+        overflow: auto;
+        height: 100px;
+      }
+      
   
   

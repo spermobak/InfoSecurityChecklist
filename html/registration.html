@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priviwe</title>
+    <link rel="stylesheet" href="/scss/reg.css" />
+</head>
+
+<body>
+    <h2>Modal Login Form</h2>
+
+    <button onclick="document.getElementById('login_window').style.display='block'" style="width:auto;">Login</button>
+
+    <div id="login_window" class="modal" style="display:none;">
+        <span onclick="document.getElementById('login_window').style.display='none'" class="close"
+            title="Close Modal">&times;</span>
+
+        <form class="modal-content animate" action="/action_page.php" method="post">
+
+            <div class="login-box">
+                <div class="small-12 medium-6 column small-order-2 medium-order-1">
+                    <div class="login-box-form-section">
+                        <h1 class="login-box-title">Sign up</h1>
+                        <input class="login-box-input" type="text" name="username" placeholder="Full name" />
+                        <input class="login-box-input" type="email" name="email" placeholder="E-mail" />
+                        <input class="login-box-input" type="tel" name="phone" placeholder="Phone number" />
+                        <input class="login-box-input" type="text" name="nikename" placeholder="Nickname" />
+                        <input class="login-box-input" type="password" name="password" placeholder="Password" />
+                        <input class="login-box-input" type="password" name="password_retype"
+                            placeholder="Retype passord" />
+                        <input class="login-box-submit-button" type="submit" name="signup_submit" value="Sign me up" />
+                        <input class="login-box-submit-button" type="submit" name="logup_submit" value="Login" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        var modal = document.getElementById('login_window');
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>
