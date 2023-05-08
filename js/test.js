@@ -1,33 +1,101 @@
-// Находим кнопку отправки результатов по ID
-const submitButton = document.getElementById('submit-button');
+function addAnswer(sectionId) {
+  const input = document.querySelector(`#${sectionId} .answer-input`);
+  const answer = input.value.trim();
 
-// Добавляем обработчик событий на нажатие кнопки
-submitButton.addEventListener('click', function(event) {
-  event.preventDefault(); // Предотвращаем отправку формы
-
-  // Находим все элементы формы с помощью метода querySelectorAll
-  const formElements = document.querySelectorAll('form input, form select');
-
-  // Объявляем переменную, которая будет хранить номер пропущенного пункта
-  let missingItem = null;
-
-  // Проходим по всем элементам формы
-  formElements.forEach(function(element, index) {
-    // Если элемент не заполнен, записываем его номер в переменную missingItem
-    if (element.value === '') {
-      missingItem = index + 1; // Добавляем 1, т.к. индексы начинаются с 0
-      return; // Прерываем цикл forEach
-    }
-  });
-
-  // Если есть пропущенный пункт, выводим сообщение и прокручиваем к нему страницу
-  if (missingItem !== null) {
-    alert('Вы пропустили пункт ' + missingItem);
-    formElements[missingItem - 1].scrollIntoView(); // Прокручиваем к пропущенному пункту
-    return; // Прерываем выполнение функции
+  if (answer === "") {
+    return;
   }
 
-  // Если все поля заполнены, отправляем данные формы на сервер
-  // Для этого можно использовать метод fetch или XMLHttpRequest
-  // ...
+  const answerList = document.querySelector(`#${sectionId} .answer-list`);
+
+  const duplicateItem = Array.from(answerList.querySelectorAll('li span'))
+    .find(item => item.textContent === answer);
+
+  if (duplicateItem !== undefined) {
+    input.value = "";
+    return;
+  }
+
+  let editingItem = answerList.querySelector(".editing");
+  if (editingItem !== null) {
+    editingItem.firstChild.textContent = answer;
+    editingItem.classList.remove("editing");
+    input.value = "";
+    updateCheckbox();
+    return;
+  }
+
+  const li = document.createElement("li");
+  const span = document.createElement("span");
+  span.textContent = answer;
+  li.appendChild(span);
+
+  li.onclick = function () {
+    answerList.querySelectorAll("li").forEach(function (item) {
+      item.classList.remove("editing");
+    });
+    li.classList.add("editing");
+    input.value = span.textContent;
+  };
+
+  const deleteButton = document.createElement("button");
+  deleteButton.textContent = "Удалить";
+  deleteButton.onclick = function () {
+    li.remove();
+    updateCheckbox();
+  };
+  li.appendChild(deleteButton);
+
+  answerList.appendChild(li);
+
+  input.value = "";
+  updateCheckbox();
+}
+
+function updateCheckbox() {
+const answerList = document.querySelector("#list_is .answer-list");
+const isAnswerList = document.querySelector("#is_answer_list");
+isAnswerList.innerHTML = ""; // очищаем список ответов второй секции
+
+answerList.querySelectorAll("li").forEach(function (item) {
+  const checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.value = item.firstChild.textContent;
+  checkbox.checked = Array.from(
+    isAnswerList.querySelectorAll("li")
+  ).some(function (li) {
+    return li.textContent === checkbox.value;
+  });
+  checkbox.onchange = function () {
+    const li = Array.from(isAnswerList.querySelectorAll("li")).find(
+      function (li) {
+        return li.textContent === checkbox.value;
+      }
+    );
+
+    if (checkbox.checked) {
+      if (!li) {
+        const li = document.createElement("li");
+        li.textContent = checkbox.value;
+        isAnswerList.appendChild(li);
+      }
+    } else {
+      if (li) {
+        li.remove();
+      }
+    }
+  };
+
+  const label = document.createElement("label");
+  label.textContent = item.firstChild.textContent;
+  label.insertBefore(checkbox, label.firstChild);
+
+  const li = document.createElement("li");
+  li.appendChild(label);
+  isAnswerList.appendChild(li);
 });
+}
+
+
+// вызываем функцию updateCheckbox для первоначальной инициализации списка ответов второй секции
+updateCheckbox();
