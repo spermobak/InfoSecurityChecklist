@@ -2,9 +2,9 @@
 input[name=find-button] {
   background-color: #4caf50;
   color: white;
-  padding: 7px 13px;
+  padding: 8px 13px;
   border: none;
-  border-radius: 5px;
+  border-radius: 17px;
   font-size: 20px;
   cursor: pointer;
 }
