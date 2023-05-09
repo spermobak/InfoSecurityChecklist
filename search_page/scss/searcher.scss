@@ -1,0 +1,89 @@
+$color_1: white;
+$color_2: #333;
+$font-family_1: "Arial", sans-serif;
+$background-color_1: #4caf50;
+
+input[name="find-button"] {
+    background-color: $background-color_1;
+    color: $color_1;
+    padding: 7px 13px;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.searcher {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    align-items: center;
+    padding: 20px;
+}
+.search-bar {
+    margin-right: 15px;
+    margin-left: auto;
+}
+.find-button {
+    margin-right: auto;
+}
+input[name="search"] {
+    width: 130%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 25px; /* добавляем закругление */
+    font-size: 16px;
+}
+
+textarea {
+    width: auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+h1 {
+    font-family: $font-family_1;
+    color: $color_2;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 48px;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-bottom: 9px;
+    border-bottom: 16px solid #2692e3;
+}
+h2 {
+    font-family: $font-family_1;
+    color: $color_2;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 36px;
+    margin-top: 38px;
+}
+h3 {
+    font-family: $font-family_1;
+    color: $color_2;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+h4 {
+    font-family: $font-family_1;
+    color: $color_2;
+    text-align: center;
+    text-transform: uppercase;
+}
+h5 {
+    font-family: $font-family_1;
+    color: $color_2;
+    text-align: center;
+    text-transform: uppercase;
+}
+h6 {
+    font-family: $font-family_1;
+    color: $color_2;
+    text-align: center;
+    text-transform: uppercase;
+}
