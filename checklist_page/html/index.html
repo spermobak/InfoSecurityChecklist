@@ -11,6 +11,14 @@
 
 <body>
     <h1>Сбор данных по результатам анкетирования</h1>
+
+    <nav class="hover-underline-menu" data-menu-underline-from-center>
+        <ul class="menu align-center">
+          <li><a href="#">Анкетный бланк</a></li>
+          <li><a href="#">Поиск</a></li>
+        </ul>
+      </nav>
+
     <div class="form">
         <div class="form-left">
             <ul class="form-nav">
@@ -341,10 +349,16 @@
         </form>
     </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $("[data-menu-underline-from-center] a").addClass("underline-from-center");
+      });
+    </script>
     <script src="../js/Json.js"></script>
     <script src="../js/Menu-switch.js"></script>
     <script src="../js/add_answer.js"></script>
-    <!-- <script src="/js/test.js"></script> -->
+    <!-- <script src="../js/scroll.js"></script> -->
 </body>
 
 </html>

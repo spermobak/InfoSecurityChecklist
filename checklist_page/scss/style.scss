@@ -5,6 +5,70 @@ $font-family_1: "Arial", sans-serif;
 $background-color_1: #ccc;
 $background-color_2: #4caf50;
 $background-color_3: rgba(76, 175, 80, 0.83);
+$menu-underline-from-center-bg: #1779ba;
+$menu-underline-from-center-border-thickness: 0.125rem;
+
+
+h1 {
+	font-family: $font-family_1;
+	color: $color_3;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 30px;
+	font-weight: bold;
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+}
+
+.hover-underline-menu {
+	width: 100%;
+  
+	.menu {
+	  background-color: $menu-underline-from-center-bg;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  list-style: none;
+	  padding: 0;
+	  margin: 0;
+  
+	  li {
+		width: 15%;
+		text-align: center;
+	  }
+  
+	  a {
+		color: $color_2;
+		padding: 0.6rem 0.9rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-decoration: none;
+		height: 100%;
+	  }
+  
+	  .underline-from-center {
+		position: relative;
+  
+		&::after {
+		  content: "";
+		  position: absolute;
+		  top: calc(100% - #{$menu-underline-from-center-border-thickness});
+		  border-bottom: $menu-underline-from-center-border-thickness solid $color_2;
+		  left: 50%;
+		  right: 50%;
+		  transition: all 0.5s ease;
+		}
+  
+		&:hover::after {
+		  left: 0;
+		  right: 0;
+		  transition: all 0.5s ease;
+		}
+	  }
+	}
+  }
 
 .form {
 	display: flex;
@@ -14,12 +78,21 @@ $background-color_3: rgba(76, 175, 80, 0.83);
 	padding: 20px;
 }
 .form-left {
-	width: 200px;
+	width: 25%;
 	margin-right: 20px;
-}
-.form-right {
-	flex: auto;
-}
+	position: fixed;
+	left: 0;
+	top: 95px;
+  }
+  
+  
+  .form-right {
+	position: absolute;
+	left: calc(25% + 20px);
+	right: 0;
+  }
+  
+  
 .form-section {
 	display: none;
 	margin-bottom: 20px;
@@ -36,24 +109,27 @@ $background-color_3: rgba(76, 175, 80, 0.83);
 	list-style: none;
 	padding: 0;
 	margin: 0;
+	height: 480px; 
+	overflow-y: auto; 
 	li {
-		margin-bottom: 10px;
+	  margin-bottom: 10px;
 	}
 	a {
-		display: block;
-		margin-bottom: 10px;
-		font-size: 16px;
-		color: $color_1;
-		text-decoration: none;
-		border-radius: 5px;
-		padding: 10px;
+	  display: block;
+	  margin-bottom: 10px;
+	  font-size: 16px;
+	  color: $color_1;
+	  text-decoration: none;
+	  border-radius: 5px;
+	  padding: 10px;
 	}
 	.active {
-		a {
-			background-color: $background-color_1;
-		}
+	  a {
+		background-color: $background-color_1;
+	  }
 	}
-}
+  }
+  
 input[type="text"] {
 	width: 94%;
 	padding: 10px;
@@ -120,52 +196,7 @@ button {
 	font-size: 16px;
 	cursor: pointer;
 }
-h1 {
-	font-family: $font-family_1;
-	color: $color_3;
-	text-align: center;
-	text-transform: uppercase;
-	font-size: 48px;
-	font-weight: bold;
-	margin-top: 50px;
-	margin-bottom: 9px;
-	border-bottom: 16px solid #2692e3;
-}
-h2 {
-	font-family: $font-family_1;
-	color: $color_3;
-	text-align: center;
-	text-transform: uppercase;
-	font-size: 36px;
-	margin-top: 38px;
-}
-h3 {
-	font-family: $font-family_1;
-	color: $color_3;
-	text-align: center;
-	text-transform: uppercase;
-	font-size: 24px;
-	margin-top: 20px;
-	margin-bottom: 10px;
-}
-h4 {
-	font-family: $font-family_1;
-	color: $color_3;
-	text-align: center;
-	text-transform: uppercase;
-}
-h5 {
-	font-family: $font-family_1;
-	color: $color_3;
-	text-align: center;
-	text-transform: uppercase;
-}
-h6 {
-	font-family: $font-family_1;
-	color: $color_3;
-	text-align: center;
-	text-transform: uppercase;
-}
+
 #range_output {
 	display: block;
 	text-align: center;
@@ -180,3 +211,25 @@ h6 {
 	overflow: auto;
 	height: 100px;
 }
+@media (max-width: 768px) {
+	.form {
+	  flex-direction: column;
+	}
+	.form-left {
+	  position: static;
+	  width: 100%;
+	  margin-right: 0;
+	  height: auto;
+	  top: auto;
+	}
+	.form-right {
+	  position: static;
+	  left: auto;
+	  right: auto;
+	  width: 100%;
+	}
+	.form-nav {
+	  height: auto;
+	}
+  }
+  

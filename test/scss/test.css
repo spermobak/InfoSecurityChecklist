@@ -1,0 +1,42 @@
+.hover-underline-menu {
+  width: 100%;
+}
+.hover-underline-menu .menu {
+  background-color: #1779ba;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.hover-underline-menu .menu li {
+  width: 15%;
+  text-align: center;
+}
+.hover-underline-menu .menu a {
+  color: white;
+  padding: 0.6rem 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  height: 100%;
+}
+.hover-underline-menu .menu .underline-from-center {
+  position: relative;
+}
+.hover-underline-menu .menu .underline-from-center::after {
+  content: "";
+  position: absolute;
+  top: calc(100% - 0.125rem);
+  border-bottom: 0.125rem solid white;
+  left: 50%;
+  right: 50%;
+  transition: all 0.5s ease;
+}
+.hover-underline-menu .menu .underline-from-center:hover::after {
+  left: 0;
+  right: 0;
+  transition: all 0.5s ease;
+}/*# sourceMappingURL=test.css.map */

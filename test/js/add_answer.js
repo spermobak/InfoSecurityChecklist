@@ -127,3 +127,5 @@ function hideField(radioId, fieldId) {
   field.style.display = "none";
 }
 
+$("[data-menu-underline-from-center] a").addClass("underline-from-center");
+

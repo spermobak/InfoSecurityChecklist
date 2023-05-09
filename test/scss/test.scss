@@ -1,0 +1,54 @@
+$menu-underline-from-center-bg: #1779ba;
+$menu-underline-from-center-border-thickness: 0.125rem;
+$color_2: white;
+
+.hover-underline-menu {
+  width: 100%;
+
+  .menu {
+    background-color: $menu-underline-from-center-bg;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      width: 15%;
+      text-align: center;
+    }
+
+    a {
+      color: $color_2;
+      padding: 0.6rem 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      height: 100%;
+    }
+
+    .underline-from-center {
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: calc(100% - #{$menu-underline-from-center-border-thickness});
+        border-bottom: $menu-underline-from-center-border-thickness solid $color_2;
+        left: 50%;
+        right: 50%;
+        transition: all 0.5s ease;
+      }
+
+      &:hover::after {
+        left: 0;
+        right: 0;
+        transition: all 0.5s ease;
+      }
+    }
+  }
+}
+
+  

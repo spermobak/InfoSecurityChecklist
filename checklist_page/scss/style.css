@@ -1,3 +1,57 @@
+h1 {
+  font-family: "Arial", sans-serif;
+  color: #333;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.hover-underline-menu {
+  width: 100%;
+}
+.hover-underline-menu .menu {
+  background-color: #1779ba;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.hover-underline-menu .menu li {
+  width: 15%;
+  text-align: center;
+}
+.hover-underline-menu .menu a {
+  color: white;
+  padding: 0.6rem 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  height: 100%;
+}
+.hover-underline-menu .menu .underline-from-center {
+  position: relative;
+}
+.hover-underline-menu .menu .underline-from-center::after {
+  content: "";
+  position: absolute;
+  top: calc(100% - 0.125rem);
+  border-bottom: 0.125rem solid white;
+  left: 50%;
+  right: 50%;
+  transition: all 0.5s ease;
+}
+.hover-underline-menu .menu .underline-from-center:hover::after {
+  left: 0;
+  right: 0;
+  transition: all 0.5s ease;
+}
+
 .form {
   display: flex;
   flex-direction: row;
@@ -7,12 +61,17 @@
 }
 
 .form-left {
-  width: 200px;
+  width: 25%;
   margin-right: 20px;
+  position: fixed;
+  left: 0;
+  top: 95px;
 }
 
 .form-right {
-  flex: auto;
+  position: absolute;
+  left: calc(25% + 20px);
+  right: 0;
 }
 
 .form-section {
@@ -33,6 +92,8 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  height: 480px;
+  overflow-y: auto;
 }
 .form-nav li {
   margin-bottom: 10px;
@@ -124,58 +185,6 @@ button {
   cursor: pointer;
 }
 
-h1 {
-  font-family: "Arial", sans-serif;
-  color: #333;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 48px;
-  font-weight: bold;
-  margin-top: 50px;
-  margin-bottom: 9px;
-  border-bottom: 16px solid #2692e3;
-}
-
-h2 {
-  font-family: "Arial", sans-serif;
-  color: #333;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 36px;
-  margin-top: 38px;
-}
-
-h3 {
-  font-family: "Arial", sans-serif;
-  color: #333;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 24px;
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
-
-h4 {
-  font-family: "Arial", sans-serif;
-  color: #333;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-h5 {
-  font-family: "Arial", sans-serif;
-  color: #333;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-h6 {
-  font-family: "Arial", sans-serif;
-  color: #333;
-  text-align: center;
-  text-transform: uppercase;
-}
-
 #range_output {
   display: block;
   text-align: center;
@@ -190,4 +199,26 @@ h6 {
   padding: 0;
   overflow: auto;
   height: 100px;
+}
+
+@media (max-width: 768px) {
+  .form {
+    flex-direction: column;
+  }
+  .form-left {
+    position: static;
+    width: 100%;
+    margin-right: 0;
+    height: auto;
+    top: auto;
+  }
+  .form-right {
+    position: static;
+    left: auto;
+    right: auto;
+    width: 100%;
+  }
+  .form-nav {
+    height: auto;
+  }
 }/*# sourceMappingURL=style.css.map */
