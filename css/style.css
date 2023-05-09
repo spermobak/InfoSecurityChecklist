@@ -51,6 +51,7 @@ input[type="text"],
  input[type="email"],
  input[type="tel"],
  input[type="url"],
+ input[type="number"],
  textarea {
      width: 94%;
      padding: 10px;
@@ -69,6 +70,16 @@ input[type="text"],
      font-size: 20px;
      cursor: pointer;
  }
+
+button{
+    background-color: rgba(76, 175, 80, 0.83);
+     color: white;
+     padding: 5px 10px;
+     border: none;
+     border-radius: 5px;
+     font-size: 16px;
+     cursor: pointer;
+}
 
  h1, h2, h3, h4, h5, h6 {
       font-family: "Arial", sans-serif;
@@ -101,7 +112,8 @@ input[type="text"],
       }
   
       .answer-list {
-        border: 2px solid #2692e3;
+        border: 1px solid #2692e3;
+          border-radius: 5px;
         list-style-type: none;
         margin: 5;
         padding: 0;
