@@ -177,15 +177,15 @@ input[type="button"] {
 	cursor: pointer;
 }
 
-button {
-	background-color: $background-color_3;
-	color: $color_2;
-	padding: 5px 10px;
-	border: none;
-	border-radius: 5px;
-	font-size: 16px;
-	cursor: pointer;
-}
+// button {
+// 	background-color: $background-color_3;
+// 	color: $color_2;
+// 	padding: 5px 10px;
+// 	border: none;
+// 	border-radius: 5px;
+// 	font-size: 16px;
+// 	cursor: pointer;
+// }
 
 button[class="delete-button"] {
 	background-color: $background-color_3;
@@ -215,6 +215,15 @@ button[class="delete-button"] {
 	height: 100px;
 	li {
 		margin-top: 5px;
+		button{
+			background-color: $background-color_3;
+			color: $color_2;
+			padding: 1px 20px;
+			border: none;
+			border-radius: 5px;
+			font-size: 12px;
+			cursor: pointer;
+		}
 	}
 }
 @media (max-width: 768px) {
