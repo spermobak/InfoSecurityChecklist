@@ -65,7 +65,7 @@ h1 {
   margin-right: 20px;
   position: fixed;
   left: 0;
-  top: 95px;
+  top: 150px;
 }
 
 .form-right {
@@ -109,6 +109,18 @@ h1 {
 }
 .form-nav .active a {
   background-color: #ccc;
+}
+
+.navigation-arrows {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  align-items: center;
+  padding: 20px;
+}
+.navigation-arrows .left-arrow {
+  margin-left: 40%;
+  margin-right: 20px;
 }
 
 input[type=text] {
@@ -185,6 +197,18 @@ button {
   cursor: pointer;
 }
 
+button[class=delete-button] {
+  background-color: rgba(76, 175, 80, 0.83);
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 5px;
+  float: right;
+  font-size: 16px;
+  cursor: pointer;
+}
+
 #range_output {
   display: block;
   text-align: center;
@@ -199,6 +223,9 @@ button {
   padding: 0;
   overflow: auto;
   height: 100px;
+}
+.answer-list li {
+  margin-top: 5px;
 }
 
 @media (max-width: 768px) {
