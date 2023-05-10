@@ -40,6 +40,7 @@
     };
 
     const deleteButton = document.createElement("button");
+    deleteButton.className = "delete-button";
     deleteButton.textContent = "Удалить";
     deleteButton.onclick = function () {
       li.remove();
