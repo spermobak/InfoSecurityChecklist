@@ -1,12 +1,15 @@
-h1 {
-  font-family: "Arial", sans-serif;
-  color: #333;
+@charset "UTF-8";
+.header {
   text-align: center;
-  text-transform: uppercase;
-  font-size: 30px;
-  font-weight: bold;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+.header h1 {
+  font-family: "Arial", sans-serif;
+  color: #333;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .hover-underline-menu {
@@ -55,23 +58,22 @@ h1 {
 .form {
   display: flex;
   flex-direction: row;
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 0;
   padding: 20px;
 }
 
 .form-left {
   width: 25%;
+  max-width: 25%;
   margin-right: 20px;
-  position: fixed;
-  left: 0;
-  top: 150px;
+  overflow-y: auto;
+  height: 100vh; /* установим высоту, чтобы элемент занимал всю высоту страницы */
 }
 
 .form-right {
-  position: absolute;
-  left: calc(25% + 20px);
-  right: 0;
+  width: 75%;
+  max-width: 75%;
 }
 
 .form-section {
@@ -92,8 +94,6 @@ h1 {
   list-style: none;
   padding: 0;
   margin: 0;
-  height: 480px;
-  overflow-y: auto;
 }
 .form-nav li {
   margin-bottom: 10px;
@@ -123,42 +123,10 @@ h1 {
   margin-right: 20px;
 }
 
-input[type=text] {
-  width: 94%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-
-input[type=email] {
-  width: 94%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-
-input[type=tel] {
-  width: 94%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-
-input[type=url] {
-  width: 94%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-
+input[type=text],
+input[type=email],
+input[type=tel],
+input[type=url],
 input[type=number] {
   width: 94%;
   padding: 10px;
@@ -204,8 +172,9 @@ button[class=delete-button] {
   border: none;
   border-radius: 5px;
   margin-right: 5px;
+  clear: right;
   float: right;
-  font-size: 16px;
+  font-size: 12px;
   cursor: pointer;
 }
 
