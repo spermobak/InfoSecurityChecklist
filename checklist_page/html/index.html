@@ -24,44 +24,44 @@
     <div class="form">
         <div class="form-left">
             <ul class="form-nav">
-                <li><a href="#" id="company_ifo" data-section="company_ifo">Информация о компании</a></li>
-                <li><a href="#" id="numb_of_responsible_for_is" data-section="numb_of_responsible_for_is">Сколько
+                <li class="active"><a href="#" id="company_ifo" page=1 data-section="company_ifo">Информация о компании</a></li>
+                <li><a href="#" id="numb_of_responsible_for_is" page=2 data-section="numb_of_responsible_for_is">Сколько
                         человек отвечает за ИБ</a></li>
-                <li><a href="#" id="responsible_for_is" data-section="responsible_for_is">Назначен ли ответственный за
+                <li><a href="#" id="responsible_for_is" page=3 data-section="responsible_for_is">Назначен ли ответственный за
                         защиту</a></li>
-                <li><a href="#" id="address" data-section="address">Укажите адреса объектов</a></li>
-                <li><a href="#" id="buisness_processes" data-section="buisness_processes">Определены ли бизнес
+                <li><a href="#" id="address" page=4 data-section="address">Укажите адреса объектов</a></li>
+                <li><a href="#" id="buisness_processes" page=5 data-section="buisness_processes">Определены ли бизнес
                         процессы?</a></li>
-                <li><a href="#" id="count_of_subject" data-section="count_of_subject">Колличество субъектов чьи ПНд
+                <li><a href="#" id="count_of_subject" page=6 data-section="count_of_subject">Колличество субъектов чьи ПНд
                         обрабатываются</a></li>
-                <li><a href="#" id="pnd_categories" data-section="pnd_categories">Какие категории ПНд обрабатываются
+                <li><a href="#" id="pnd_categories" page=7 data-section="pnd_categories">Какие категории ПНд обрабатываются
                         организацией?</a></li>
-                <li><a href="#" id="pnd_subjects" data-section="pnd_subjects">ПНд каких субъектов обрабатывает
+                <li><a href="#" id="pnd_subjects" page=8 data-section="pnd_subjects">ПНд каких субъектов обрабатывает
                         организация?</a></li>
-                <li><a href="#" id="list_is" data-section="list_is">Список информационных систем, обрабатывающих ПНд</a>
+                <li><a href="#" id="list_is" page=9 data-section="list_is">Список информационных систем, обрабатывающих ПНд</a>
                 </li>
-                <li><a href="#" id="abroad_is" data-section="is_foregin">Какие из перечисленных ИС находятся за
+                <li><a href="#" id="abroad_is" page=10 data-section="is_foregin">Какие из перечисленных ИС находятся за
                         границей</a>
                 </li>
-                <li><a href="#" id="numb_of_servers" data-section="numb_of_servers">Количество серверов, на которых
+                <li><a href="#" id="numb_of_servers" page=11 data-section="numb_of_servers">Количество серверов, на которых
                         обрабатываются ПНд</a></li>
-                <li><a href="#" id="numb_of_aws" data-section="numb_of_aws">Количество автоматизированных рабочих
+                <li><a href="#" id="numb_of_aws" page=12 data-section="numb_of_aws">Количество автоматизированных рабочих
                         мест(АРМ), на которых осуществляется обработка ПНд</a></li>
-                <li><a href="#" id="protective_equipment" data-section="protective_equipment">Средства защиты инфрмации,
+                <li><a href="#" id="protective_equipment" page=13 data-section="protective_equipment">Средства защиты инфрмации,
                         применяемые для обеспечения безопасности ПНд</a></li>
-                <li><a href="#" id="cist" data-section="cist">Используется ли СКЗИ для защиты</a></li>
-                <li><a href="#" id="risk_model" data-section="risk_model">Действует ли в организации модель угроз</a>
+                <li><a href="#" id="cist" page=14 data-section="cist">Используется ли СКЗИ для защиты</a></li>
+                <li><a href="#" id="risk_model" page=15 data-section="risk_model">Действует ли в организации модель угроз</a>
                 </li>
-                <li><a href="#" id="processing_policy" data-section="processing_policy">Введена ли в действие политика
+                <li><a href="#" id="processing_policy" page=16 data-section="processing_policy">Введена ли в действие политика
                         обработки ПНд, политика
                         защиты ПНд</a></li>
-                <li><a href="#" id="other_documentation" data-section="other_documentation">Действует ли в организации
+                <li><a href="#" id="other_documentation" page=17 data-section="other_documentation">Действует ли в организации
                         иная
                         организационно-распределительная документация в направлении защиты ПНд?</a></li>
-                <li><a href="#" id="security_level" data-section="security_level">Определен ли уровень зашищенности ПНд
+                <li><a href="#" id="security_level" page=18 data-section="security_level">Определен ли уровень зашищенности ПНд
                         в информационных
                         системах</a></li>
-                <li><a href="#" id="documentation_level" data-section="documentation_level">Оцените степень
+                <li><a href="#" id="documentation_level" page=19 data-section="documentation_level">Оцените степень
                         документирования процесса защиты ПНд (ИТ и ИБ)</a></li>
                 <input type="button" value="Отправить" onclick="submitForm()" />
             </ul>
@@ -349,10 +349,10 @@
                 </section>
                 <div class="navigation-arrows">
                     <div class="left-arrow">
-                        <input type="button" value="Назад" onclick="" />
+                        <input type="button" value="Назад" onclick="navigate('back')" />
                 </div>
                 <div class="right-arrow">
-                    <input type="button" value="Вперёд" onclick="" />
+                    <input type="button" value="Вперёд" onclick="navigate('forward')" />
             </div>
                 </div>
         </div>
@@ -369,6 +369,7 @@
     <script src="../js/Menu-switch.js"></script>
     <script src="../js/add_answer.js"></script>
     <script src="../js/scroll.js"></script>
+    <script src="../js/navigation_arrows.js"></script>
     <!-- <script src="../js/scroll.js"></script> -->
 </body>
 
