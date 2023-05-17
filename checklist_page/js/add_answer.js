@@ -62,31 +62,33 @@
   answerList.querySelectorAll("li").forEach(function (item) {
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
-    checkbox.value = item.firstChild.textContent;
-    checkbox.checked = Array.from(
-      isAnswerList.querySelectorAll("li")
-    ).some(function (li) {
-      return li.textContent === checkbox.value;
-    });
-    checkbox.onchange = function () {
-      const li = Array.from(isAnswerList.querySelectorAll("li")).find(
-        function (li) {
-          return li.textContent === checkbox.value;
-        }
-      );
+    checkbox.name = item.firstChild.textContent;
+    checkbox.id = item.firstChild.textContent;
+    // checkbox.value = "off";
+    // checkbox.checked = Array.from(
+    //   isAnswerList.querySelectorAll("li")
+    // ).some(function (li) {
+    //   return li.textContent === checkbox.value;
+    // });
+    // checkbox.onchange = function () {
+    //   const li = Array.from(isAnswerList.querySelectorAll("li")).find(
+    //     function (li) {
+    //       return li.textContent === checkbox.value;
+    //     }
+    //   );
 
-      if (checkbox.checked) {
-        if (!li) {
-          const li = document.createElement("li");
-          li.textContent = checkbox.value;
-          isAnswerList.appendChild(li);
-        }
-      } else {
-        if (li) {
-          li.remove();
-        }
-      }
-    };
+    //   if (checkbox.checked) {
+    //     if (!li) {
+    //       const li = document.createElement("li");
+    //       li.textContent = checkbox.value;
+    //       isAnswerList.appendChild(li);
+    //     }
+    //   } else {
+    //     if (li) {
+    //       li.remove();
+    //     }
+    //   }
+    // };
 
     const label = document.createElement("label");
     label.textContent = item.firstChild.textContent;
