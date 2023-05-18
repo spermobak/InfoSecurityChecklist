@@ -1,6 +1,26 @@
+$color_1: #4f4545;
+$color_2: white;
+$color_3: #333;
+$font-family_1: "Arial", sans-serif;
+$background-color_1: #ccc;
+$background-color_2: #4caf50;
+$background-color_3: rgba(76, 175, 80, 0.83);
 $menu-underline-from-center-bg: #1779ba;
 $menu-underline-from-center-border-thickness: 0.125rem;
-$color_2: white;
+
+.header {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  h1 {
+    font-family: $font-family_1;
+    color: $color_3;
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: bold;
+  }
+}
 
 .hover-underline-menu {
   width: 100%;
@@ -51,4 +71,170 @@ $color_2: white;
   }
 }
 
-  
+.form {
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+  margin: 0;
+  padding: 20px;
+}
+
+.form-left {
+  width: 25%;
+  max-width: calc(100% * 0.25);
+  margin-right: 20px;
+  overflow-y: auto;
+  .form-left {
+    height: calc(100vh - 50px - 30px - .hover-underline-menu.menu.offsetHeight);
+  }
+}
+
+.form-right {
+  width: 75%;
+  max-width: calc(100% * 0.75);
+}
+
+.form-section {
+  display: none;
+  margin-bottom: 20px;
+}
+
+.form-section.active {
+  display: block;
+  margin-left: 0px;
+  padding: 25px;
+  border: 1px solid #ccc;
+  border-radius: 9px;
+  box-sizing: border-box;
+}
+
+.form-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    margin-bottom: 10px;
+  }
+
+  a {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: $color_1;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  .active {
+    a {
+      background-color: $background-color_1;
+    }
+  }
+}
+
+.navigation-arrows {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  align-items: center;
+  padding: 20px;
+  .left-arrow {
+    margin-left: 40%;
+    margin-right: 20px;
+  }
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="number"] {
+  width: 94%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+textarea {
+  width: 94%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+input[type="button"] {
+  background-color: $background-color_2;
+  color: $color_2;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+button {
+  background-color: $background-color_3;
+  color: $color_2;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button[class="delete-button"] {
+  background-color: $background-color_3;
+  color: $color_2;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 5px;
+  clear: right;
+  float: right;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+#range_output {
+  display: block;
+  text-align: center;
+  font-size: 22pt;
+}
+.answer-list {
+  border: 1px solid #2692e3;
+  border-radius: 5px;
+  list-style-type: none;
+  margin: 5;
+  padding: 0;
+  overflow: auto;
+  height: 100px;
+  li {
+    margin-top: 5px;
+  }
+}
+@media (max-width: 768px) {
+  .form {
+    flex-direction: column;
+  }
+  .form-left {
+    position: static;
+    width: 100%;
+    margin-right: 0;
+    height: auto;
+    top: auto;
+  }
+  .form-right {
+    position: static;
+    left: auto;
+    right: auto;
+    width: 100%;
+  }
+  .form-nav {
+    height: auto;
+  }
+}

@@ -33,3 +33,24 @@ window.addEventListener('scroll', function() {
   }
   lastScrollTop = scrollTop;
 });
+
+
+window.addEventListener('load', () => {
+  updateFormLeftHeight();
+});
+
+window.addEventListener('resize', () => {
+  updateFormLeftHeight();
+});
+
+function updateFormLeftHeight() {
+  const windowHeight = window.innerHeight;
+  const headerHeight = header.offsetHeight;
+  const menuHeight = menu.offsetHeight;
+  const formTopOffset = formLeft.offsetTop;
+  const formBottomPadding = parseInt(getComputedStyle(formLeft).paddingBottom);
+
+  const formLeftHeight = windowHeight - headerHeight - menuHeight - formTopOffset - formBottomPadding;
+
+  formLeft.style.height = `calc(${formLeftHeight}px)`;
+}
