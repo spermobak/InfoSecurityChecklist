@@ -108,7 +108,7 @@
   padding: 10px;
 }
 .form-nav .active a {
-  background-color: #ccc;
+  background-color: rgba(76, 175, 80, 0.83);
 }
 
 .navigation-arrows {
@@ -155,16 +155,6 @@ input[type=button] {
   cursor: pointer;
 }
 
-button {
-  background-color: rgba(76, 175, 80, 0.83);
-  color: white;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
 button[class=delete-button] {
   background-color: rgba(76, 175, 80, 0.83);
   color: white;
@@ -195,6 +185,15 @@ button[class=delete-button] {
 }
 .answer-list li {
   margin-top: 5px;
+}
+.answer-list li button {
+  background-color: rgba(76, 175, 80, 0.83);
+  color: white;
+  padding: 1px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {
